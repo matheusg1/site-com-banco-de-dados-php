@@ -48,7 +48,15 @@ if ($_SESSION['usu_tipo'] != 1) {
             <div class="card position-absolute top-50 start-50 translate-middle col-lg-4 col-md-6 col-sm-8">
                 <div class="card-body">
                     <?php
-                        $busca = "SELECT us.usu_login, ta.tent_data, ta.tent_hora, ta.tent_tipo_aut, ta.tent_aut FROM usuario AS us JOIN tentativa_acesso AS ta ON ta.tent_usu_id = us.usu_id"; 
+                        $busca = "SELECT us.usu_login, ta.tent_data, ta.tent_hora, aut.aut_desc, tia.tipo_desc
+                        FROM tentativa_acesso AS ta
+                        JOIN usuario AS us ON us.usu_id = ta.tent_usu_id 
+                        JOIN autenticou AS aut ON ta.autenticou_id = aut.autenticou_id 
+                        JOIN tipo_autenticacao AS tia ON ta.tipo_aut_id = tia.tipo_id 
+                        ORDER BY ta.tent_id DESC"; 
+
+                        $_SESSION['busca'] = $busca;
+
                         $total_reg = "3"; // número de registros por página
                         @$pagina=$_GET['pagina'];
                         if (!$pagina) {
@@ -60,7 +68,7 @@ if ($_SESSION['usu_tipo'] != 1) {
                         }
                         $inicio = $pc - 1;
                         $inicio = $inicio * $total_reg;
-                        $limite = mysqli_query($conexao, "$busca LIMIT $inicio,$total_reg");
+                        $limite = mysqli_query($conexao, "$busca LIMIT $inicio, $total_reg");
                         $todos = mysqli_query($conexao, "$busca");
 
                         $tr = mysqli_num_rows($todos); // verifica o número total de registros
@@ -70,11 +78,27 @@ if ($_SESSION['usu_tipo'] != 1) {
 
                             echo    '<ul class="list-group"> ';
                             echo        '<li class="list-group-item">' ;
-                                    mostraRegistro($dados);
+                                            mostraRegistro($dados);
                             echo        '</li>';
                             echo    '</ul>';
                             echo '<hr>';
                         }
+
+                        /*while ($dados = mysqli_fetch_array($todos)) {     // coloca registros num array
+
+                            $info_reg['usu_login'] = $dados['usu_login'];
+                            $info_reg['tent_data'] = $dados['tent_data'];
+                            $info_reg['tent_hora'] = $dados['tent_hora'];
+                            $info_reg['aut_desc'] = $dados['aut_desc'];
+                            $info_reg['tipo_desc'] = $dados['tipo_desc'];
+
+                            $queryRegistros[] = $info_reg;
+                            
+                        }
+
+                        $_SESSION['queryRegistros'] = $queryRegistros;
+                        
+                        */
 
                         $anterior = $pc - 1;
                         $proximo = $pc + 1;
@@ -91,7 +115,6 @@ if ($_SESSION['usu_tipo'] != 1) {
                             echo '</div>';
                         }
                     ?>
-
                     <form action="" method="GET">
                         <div class="input-group mb-3">
                             <div class="row g-2">
@@ -100,7 +123,7 @@ if ($_SESSION['usu_tipo'] != 1) {
                                     <input type="text" name="pagina" class="form-control" id="1" style="max-width:50px;" aria-label="Recipient's username" aria-describedby="button-addon2" value="<?php echo $pc ?>">
                                     <button class="btn btn-outline-primary" name="btnPag" style="max-width:50px;" type="submit" id="button-addon2">Ir</button>
                                 </div>
-                                    <a href="baixaPdf.php" target="_blank"><button class="btn btn-outline-primary" name="btnPdf" type="button" id="button-addon2" aria-label="Recipient's username" aria-describedby="button-addon2">Baixar PDF</button></a>
+                                   <a href="baixaPdf.php" target="_blank"><button class="btn btn-outline-primary" name="btnPdf" type="button" id="button-addon2" aria-label="Recipient's username" aria-describedby="button-addon2">Baixar PDF</button><!--</a>-->
                                     <a href='logout.php'><button type="button" name="botaoLogout" class="btn btn-outline-primary" ><?php echo "Deslogar" ?></button></a>
                             </div>
                         </div>
@@ -108,9 +131,6 @@ if ($_SESSION['usu_tipo'] != 1) {
                 </div>
             </div>
         </div>
-        <ul class="list-group"> 
-            <li class="list-group-item">tedsadas</li>
-        </ul>
     </div>
     <canvas id="nokey" width="100%" height="100%" oncontextmenu="return false;" ></canvas>
     <script src="script.js"></script>
