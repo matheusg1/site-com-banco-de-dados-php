@@ -99,7 +99,7 @@
 }
 #modeloDados{
     opacity: 0.5;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 #modeloDados:hover{
     opacity: 1;
