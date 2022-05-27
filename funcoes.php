@@ -27,59 +27,22 @@ function dataLimite(){ //função que limita a data de nascimento
     echo date('Y-m-d',strtotime('-120 month', strtotime(str_replace("/", "-", (date('d-m-Y')))))); // 10 anos
 }
 
-function mostraAutenticacao($x) {               //função que traduz os tipos de autenticação
-
-    switch ($x) {
-
-        case 1:                     
-            $x = "3 primeiros dígitos do CPF"; 
-            break;
-        case 2:
-            $x = "3 últimos dígitos do CPF";    
-            break;
-        case 3:
-            $x = "Número do celular";          
-            break;
-        case 4:
-            $x = "Data de nascimento";          
-            break;
-        case 5:
-            $x = "Nome materno";                
-            break;
-        default:
-            $x = "Não necessária";              
-        
-    }
-    return $x;
-}
-
-function autenticou($x) {                       
-
-    if ($x == 'S') {
-        return $x = "Sim";
-
-    }
-    else {
-        return $x = "Não"; 
-    }
-}
-
 function formataData($x) {                      //função que formata a data para um padrão mais convencional
     
     return date('d/m/Y',strtotime($x));
 
 }
 
-function mostraRegistro($dados) { 
+function mostraRegistro($dados) {               //usuario master ve isso
 
     echo "Login: " . $dados['usu_login'] . "<br>";
     echo "Data: " . formataData($dados['tent_data']) . "<br>";
     echo "Hora: " . $dados['tent_hora'] . "<br>";
-    echo "Autenticou: " . autenticou($dados['tent_aut']) . "<br>";
-    echo "Tipo de autenticação: " . mostraAutenticacao($dados['tent_tipo_aut']) . "<br>";
+    echo "Autenticou: " . ($dados['aut_desc']) . "<br>";
+    echo "Tipo de autenticação: " . ($dados['tipo_desc']) . "<br>";
 }
 
-function obter3Primeiros($x) {
+function obter3Primeiros($x) {          
 
     return substr($x, 0, -8);
 }
@@ -91,9 +54,9 @@ function obter3Ultimos($x) {
 
 function mudaLink(){
 
-    if (@isset($_SESSION['usu_tipo'])){
+    if (@isset($_SESSION['tipo_usu_id'])){
 
-        switch($_SESSION['usu_tipo']){
+        switch($_SESSION['tipo_usu_id']){
     
             case 1:
                 $mudaLink = 'dados_acesso_1.php';
@@ -115,6 +78,7 @@ function mostraBotaoLogout(){
     if (isset($_SESSION['aut'])){
 
         if ($_SESSION['aut']) {
+            
             echo '<li><a class="navbar-brand degradeMovimento" href="logout.php">Deslogar</a></li>';
         }
     }
@@ -123,6 +87,7 @@ function mostraBotaoLogout(){
 function mostraMudanca() {
 
     if (isset($_SESSION['mudaDados'])){
+
         echo   '<div class="card border-dark mb-3" style="max-width: 100%; max-height:20px; text-align:center; align-items:center; margin: 0 300px 0 300px; padding-bottom:60px ">
                     <div class="card-body text-dark">
                         <h5 class="card-title">' . $_SESSION['mudaDados'] . '<br></h5>
