@@ -1,7 +1,14 @@
-
 <?php
 session_start();
+if ($_SESSION['tipo_usu_id'] != 1) {
+
+    $_SESSION['msg'] = "Área restrita";
+    header("Location: index.php");
+}
+require_once("conexao.php");
 require_once("funcoes.php");
+$latitude = filter_input(INPUT_POST, 'lati');
+$longitude = filter_input(INPUT_POST, 'longi');
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -34,14 +41,24 @@ require_once("funcoes.php");
             </div>
         </nav>
     </div>
-    <div class="card position-absolute top-50 start-50" style="transform: translate(-50%, -40%);">
-        <div class="card-body">
-            <img src="Imagens/modeloDadosBg.png" class="position-absolute top-50 start-50 rounded-1" style="transform: translate(-50%, -50%);" alt="...">
-            <img src="Imagens/modeloDadosPng.png" id="modeloDados" class="position-absolute top-50 start-50" style="transform: translate(-50%, -50%);" alt="...">
-        </div>
-    </div>
-
-    <canvas id="nokey" width="100%" height="100%" oncontextmenu="return false;"></canvas>
+        <div class="card position-absolute translate-middle-x" id="cardMapa">
+            <div class="card-body">
+                <?php mostraMudanca() ?>
+                <div id="googleMap"></div>
+                    <script>
+                        function myMap() {
+                            var mapProp= {
+                            center:new google.maps.LatLng(<?php echo $latitude ?>,<?php echo $longitude ?>),
+                            zoom:16,
+                            };
+                            var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+                        }
+                    </script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIonYmVYj89m94E69F1caIa4MhMOTS1Jk&callback=myMap"></script>
+                </body>
+            </div>
+        </div> 
+    <canvas id="nokey"oncontextmenu="return false;"></canvas>
     <script src="script.js"></script>
 </body>
 </html>

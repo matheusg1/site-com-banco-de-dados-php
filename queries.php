@@ -9,36 +9,32 @@ require_once("funcoes.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style2.css">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="Imagens/favicon.ico" />
-    <title>Fiction - Soluções em telefonia e internet</title>
+    <title>Fiction - Soluções completas em telefonia e internet</title>
 </head>
 <body>
-    <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-lg-12 col-sm-12">
-                    <div class="position-absolute top-0 start-0 end-0">
-                        <nav class="navbar navbar-light bg-light">
-                            <a class="navbar-brand degradeMovimento" id="titulo" href="<?php echo mudaLink() ?>">
-                            <img src="Imagens/fiction-icon.png" alt="" width="78.4px" height="78.4px" class="d-inline-block align-text-top">
-                            Fiction
-                            </a>
-                            <ul class="d-flex">
-                                <?php mostraBotaoLogout() ?>
-                                <li><a class="navbar-brand degradeMovimento" href="cadastro.php">Cadastro</a></li>
-                                <li><a class="navbar-brand degradeMovimento" href="modelagem.php">Modelo de dados</a></li>
-                                <li><a class="navbar-brand degradeMovimento " href="queries.php">Queries SQL</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+    <div class="top-0 start-0 end-0">
+        <nav class="navbar navbar-light bg-light">
+            <div class="titulo">
+                <a class="navbar-brand degradeMovimento mx-5" href="<?php echo mudaLink() ?>">
+                <img src="Imagens/Fiction-icon.png" alt="" class="d-inline-block align-text-middle">
+                <span class="px-3">Fiction</span>
+                </a>
             </div>
-        </div>
-    <div class="card position-absolute top-50 start-50 translate-middle">
+            <div class="barraNav">
+                <ul class="d-flex float-end mx-5 text-uppercase">
+                    <?php mostraBotaoLogout() ?>
+                    <li><a class="navbar-brand degradeMovimento" href="cadastro.php">Cadastro</a></li>
+                    <li><a class="navbar-brand degradeMovimento" href="modelagem.php">Modelo de dados</a></li>
+                    <li><a class="navbar-brand degradeMovimento " href="queries.php">Queries SQL</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="card position-absolute translate-middle-x" id="cardQueries">
         <div class="card-body">
-
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-pause="hover">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -60,7 +56,6 @@ require_once("funcoes.php");
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="16" aria-label="Slide 17"></button>
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="17" aria-label="Slide 18"></button>
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="18" aria-label="Slide 19"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="19" aria-label="Slide 20"></button>
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -73,29 +68,22 @@ require_once("funcoes.php");
                     <div class="carousel-item">
                     <img src="Imagens/valida/query2.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Query para adicionar a data e hora atual no momento do login</h5>
+                        <h5>Query para adicionar registros na tabela de tentativa de login</h5>
                         <p>Usada na aplicação valida.php</p>
                     </div>
                     </div>
                     <div class="carousel-item">
-                    <img src="Imagens/valida/query3.png" class="d-block w-100" alt="...">
+                    <img src="Imagens/autentica/query24.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Coloca o id do usuário no último registro da tabela de tentativa de acesso</h5>
-                        <p>Usada na aplicação valida.php</p>
-                    </div>
-                    </div>
-                    <div class="carousel-item">
-                    <img src="Imagens/autentica/query4.png" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Usada para adicionar o tipo de autenticação</h5>
+                        <h5>Atualiza o tipo de autenticação usado caso seja usuário comum</h5>
                         <p>Usada na página autentica.php</p>
                     </div>
                     </div>
                     <div class="carousel-item">
-                    <img src="Imagens/autentica/query5.png" class="d-block w-100" alt="...">
+                    <img src="Imagens/autentica/query25.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Adiciona na tabela se o usuário autenticou ou não "S/N"</h5>
-                        <p>Usada duas vezes na página autentica.php</p>
+                        <p>Usada na página autentica.php</p>
                     </div>
                     </div>
                     <div class="carousel-item">
@@ -197,10 +185,10 @@ require_once("funcoes.php");
                     </div>
                     </div>
                     <div class="carousel-item">
-                    <img src="Imagens/baixaPdf/query20.png" class="d-block w-100" alt="...">
+                    <img src="Imagens/baixaPlanilha/query20.png" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Recebe os dados para exibição de todos registros de tentativa de login</h5>
-                        <p>Usada na página baixarPdf.php</p>
+                        <h5>Recebe os registros de login, incluindo IP e geolocalização</h5>
+                        <p>Usada na aplicação baixaPlanilha.php</p>
                     </div>
                     </div>
                 </div>
