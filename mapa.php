@@ -54,7 +54,7 @@ $longitude = filter_input(INPUT_POST, 'longi');
                             var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
                         }
                     </script>
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIonYmVYj89m94E69F1caIa4MhMOTS1Jk&callback=myMap"></script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=KEY&callback=myMap"></script>
                 </body>
             </div>
         </div> 
