@@ -268,7 +268,7 @@ canvas.addEventListener('mouseleave', function(){
 canvas.addEventListener('mousemove', function(e){
     var e = e || window.event;
     mouse_ball.x = e.pageX;
-    mouse_ball.y = e.pageY - 105; //padrao sem
+    mouse_ball.y = e.pageY;
     // console.log(mouse_ball);
 });
 

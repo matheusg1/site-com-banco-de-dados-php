@@ -1,4 +1,4 @@
-<?php 
+<?php //    Arquivo com todos updates
 if (isset($btnNome)) {          
 
     $newNome = filter_input(INPUT_POST, 'newNome');
@@ -62,14 +62,13 @@ if (isset($btnNomemat)) {
         }
     }
 }
-
 if (isset($btnCpf)) {          
 
     $newCpf = filter_input(INPUT_POST, 'newCpf');
     $query = 'SELECT usu_cpf FROM usuario WHERE usu_cpf = "' . $newCpf . '"'; 
     $add = mysqli_query($conexao, $query);
 
-    if (checaRepeticao($add)) {
+    if (mysqli_num_rows($add) >= 1) {
         $_SESSION['mudaDados'] = "CPF já cadastrado";
     } 
     else {
@@ -163,7 +162,7 @@ if (isset($btnLogin)) {
     $query = 'SELECT usu_login FROM usuario WHERE usu_login = "' . $newLogin . '" '; 
     $add = mysqli_query($conexao, $query);
 
-    if (checaRepeticao($add)) {
+    if (mysqli_num_rows($add) == 1) {
         $_SESSION['mudaDados'] = "Login já existente";
     } 
     else {
