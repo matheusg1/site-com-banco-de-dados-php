@@ -1,9 +1,181 @@
-*{
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+.titulo img{
+    width:78.4px;
+    height:78.4px;
+
+}
+.titulo span{
+    vertical-align: middle;
+    font-size: 52px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    font-style: bold;
+    background-size: 200% 200%;
+}
+.barraNav ul li a{
+    vertical-align: bottom;
+    padding:20px 10px 0px 0px;
+    font-size: 30px;
+    font-family:'Ubuntu', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    background-size: 250% 100%;
+}
+.centraliza{
+    left:50%
+}
+#tableRegistros{
+    width: max-content;
+    background: rgba(255, 255, 255, 0.9);
+    margin-bottom:0;
+}
+#cardAutenticacao{
+
+    margin:12% 0;
+    width:50%;
+    max-width:100%;
+    left:50%;
+}
+#cardAlteracao{
+
+    margin:2.5% 0;
+    height: auto;
+    width: max-content;
+    min-width:80%;
+}
+#cardCadastro{
+
+    margin:2.5% 0;
+    width:80%;
+    max-width:100%;
+    max-height: 80%;
+    left:50%;
+}
+#cardQueries{
+
+    margin:4% 0;
+    width:60%;
+    max-width:100%;
+    left:50%;
+}
+#cardMapa{
+    margin:2.5% 0;
+    left:50%;
+    width:72%;
+    height:70%;
+}
+#googleMap{
+    margin: auto;
+    text-align: center;
+    width:100%;
+    height:100%;
+}
+.alinhaCentro{
+    text-align: center;
+}
+.degradeMovimento {
+
+  display: block;
+  padding: 0 2rem;
+  text-align: center;
+  position: relative;
+  font-size: 12rem;
+  font-family: sans-serif;
+  font-weight: 900;
+  
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(45deg, rgb(0, 0, 0), rgb(0, 0, 0) 50%, #0b92f0 55%, #cb1c2c);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 0%;
+  transition: background-position 0.42s ease;
+}
+a:hover {
+  background-position: 100%;
+}
+#foto{
+    left:80%;
+    margin-top:8%;
+    opacity:0;
+    transition: 0.3s;
+}
+#foto:hover{
+    transition: 0.3s;
+    opacity:1;
+}
+#modeloDados{
+    opacity: 0.5;
+    transition: 0.3s;
+}
+#modeloDados:hover{
+    opacity: 1;
+}
+.carousel-item p{
+    font-weight: 700;
+    font-size: 1.4rem;
+    color:black;
+}
+.carousel-item h5{
+    font-weight: 700;
+    font-size: 1.8rem;
+    color:black;
+}
+
+.botoesCores button{
+    /*margin: 0 15px;*/
+    text-align: center;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.botoesCores button:hover{
+    background-color: #0b92f0;
+    opacity: 1;
+    background-color: #0b92f0;
+}
+.botoesCores a{
+    /*margin: 0 15px;*/
+    text-align: center;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+.botoesCores a:hover{
+    background-color: #0b92f0;
+    opacity: 1;
+    background-color: #0b92f0;
+}
+
+#botaoVermelho{
+    margin: 0 15px 0 15px;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+#botaoVermelho:hover{
+    opacity: 1;
+    background-color: red;
+}
+
+.botaoInvisivel{
+    background: none;
+	color: #0b92f0;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.marginLateral{
+    margin: 0 15px;
+
 }
 html, body{
-    position: fixed;
     height: 100%;
     margin: 0;
     padding: 0;
@@ -11,5 +183,17 @@ html, body{
     overflow: hidden;
 }
 canvas{
+    width: 100%;
+    height:100%;
     background-color: rgb(20, 20, 20);
+}
+*{
+    font-size: 1.1rem;
+    list-style-type: none;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    /* css do background abaixo dessa linha*/
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
