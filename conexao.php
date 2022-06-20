@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('America/Sao_Paulo');
-    
+
 $host = "localhost";
 $user = "root";
 $pass = "";
@@ -12,7 +12,6 @@ if($conexao === false){
 } 
 
 else {
-  /* set autocommit para falso */
   mysqli_autocommit($conexao, FALSE);
-  }
+}
 ?>

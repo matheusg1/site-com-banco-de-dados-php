@@ -44,7 +44,7 @@ function obter3Ultimos($x) {
 
 function mudaLink(){
 
-    if (@isset($_SESSION['tipo_usu_id'])){
+    if (@isset($_SESSION['tipo_usu_id'])){ // caso haja valor no tipo de usuario
 
         switch($_SESSION['tipo_usu_id']){
     
@@ -53,11 +53,10 @@ function mudaLink(){
                 break;
             case 2:
                 $mudaLink = 'dados_acesso_2.php';
+                break;
         }
-    
     }
     else{
-        
         $mudaLink = 'index.php';
     }
     return $mudaLink;
@@ -69,7 +68,7 @@ function mostraBotaoLogout(){
 
         if ($_SESSION['aut']) {
             
-            echo '<li><a class="navbar-brand degradeMovimento" href="logout.php">Deslogar</a></li>';
+            echo '<li class="nav-item degradeMovimento"><a class="nav-link " aria-current="page" href="logout.php">Deslogar</a></li>';
         }
     }
 }
@@ -125,13 +124,14 @@ function mostraAviso(){
 
     if(isset($_SESSION['msg'])){
                         
-        echo '<div class="alert alert-secondary" role="alert">';
+        echo '<div class="alert alert-secondary rounded-0" role="alert">';
         echo $_SESSION['msg'] . '</div>';
         return $_SESSION['msg'];
+
     }
     if(isset($_SESSION['msgcad'])){
 
-        echo '<div class="alert alert-secondary" role="alert">';
+        echo '<div class="alert alert-secondary rounded-0" role="alert">';
         echo $_SESSION['msgcad'] . '</div>';
         return $_SESSION['msgcad'];
     }
@@ -166,25 +166,4 @@ function permiteUsuario2(){
         header("Location: index.php");
     }
 }
-
-/*function recebeCoordenadas($ip){
-
-    $_SESSION['dados_geo'] = file_get_contents("https://ipgeolocation.abstractapi.com/v1/?api_key=XXXX&ip_address=".$ip."&fields=latitude,longitude");
-    $json_str = $_SESSION['dados_geo'];
-    $obj = json_decode($json_str);
-    $latitude = $obj->latitude;
-    $longitude = $obj->longitude;
-    $_SESSION['dados_geo'] = "$latitude,$longitude";
-    return $_SESSION['dados_geo'];*/
-
-    /*$_SESSION['dados_geo'] = file_get_contents("http://ip-api.com/json/".$ip."?fields=lat,lon");
-    $json_str = $_SESSION['dados_geo'];
-    $obj = json_decode($json_str);
-    $latitude = $obj->latitude;
-    $longitude = $obj->longitude;
-    $_SESSION['dados_geo'] = "$latitude,$longitude";
-    return $_SESSION['dados_geo'];
-    
-
-}*/
 ?>

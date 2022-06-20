@@ -2,7 +2,7 @@
 session_start();
 require_once("conexao.php");
 require_once("funcoes.php");
-$_SESSION['ip_usu'] = recebeIp("publico");
+$_SESSION['ip_usu'] = recebeIp("local");
 $_SESSION['lat'] = filter_input(INPUT_POST, 'latitude');
 $_SESSION['lon'] = filter_input(INPUT_POST, 'longitude');
 $botaoLogin = filter_input(INPUT_POST, 'botaoLogin');
@@ -36,8 +36,8 @@ if($botaoLogin){
 					$hora = $horaAtual;
 					$ip = $_SESSION['ip_usu'];
 					$usu_id = $row_usuario['usu_id'];
-					$tent_lat = $_SESSION['lat'];
-					$tent_lon = $_SESSION['lon'];
+					$tent_lat = $_SESSION['lat']; //'-22.89491722245782';
+					$tent_lon = $_SESSION['lon']; //'-43.17969660783541';
 					
 					if(mysqli_stmt_execute($stmt)){
 			
