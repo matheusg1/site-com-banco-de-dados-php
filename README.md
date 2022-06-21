@@ -1,4 +1,4 @@
-# Segundo site com banco de dados
+# Site com banco de dados
 
 Sistema criado primariamente com PHP e Bootstrap para um projeto acadêmico de conclusão de semestre. Quase completamente responsivo. Ideal para telas em FHD.
 
