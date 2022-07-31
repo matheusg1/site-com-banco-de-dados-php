@@ -1,7 +1,30 @@
+
 # Site com banco de dados
 
 Sistema criado primariamente com PHP e Bootstrap para um projeto acadêmico de conclusão de semestre. Quase completamente responsivo. Ideal para telas em FHD.
 
-O sistema possui dois tipos de usuário, "Master" e "Comum". O usuário Master tem acesso aos registros de tentativa de login, e o usuário Comum tem acesso aos seus próprios dados para alterações ou exclusão. Cada vez que um usuário Comum passa pela primeira etapa de autenticação, com login e senha corretos, a sua tentativa de acesso é gravada. O mesmo acontece quando um usuário Master faz o login.
+O sistema possui dois tipos de usuário, "Master" e "Comum". 
 
-Ferramentas utilizadas: PHP, MySQL, Workbench, CSS e HTML, Bootstrap. Evitei usar mas acabei precisando de um pouco de Javascript.
+O usuário Master pode:
+ - Fazer cadastro de outro Master
+ - Ver dados de usuários cadastrados
+ - Ver registros de login
+ - Visualizar um mapa com as coordenadas relacionadas a cada login
+
+O usuário Comum pode:
+ - Ver os próprios dados
+ - Alterar os próprios dados
+ - Excluir conta
+
+Cada vez que um usuário passa pela primeira etapa de autenticação, com login e senha corretos, a sua tentativa de acesso é gravada.
+
+Ferramentas utilizadas: 
+<p align="left">
+<a href="https://www.photoshop.com/en" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="php" width="40" height="40"/> </a> 
+<a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> 
+ <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> 
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer">  <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a>
+<a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/> </a>
+ <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> 
+ <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg" alt="photoshop" width="40" height="40"/> </a> <a href="https://www.php.net" target="_blank" rel="noreferrer"> 
+ </p>
