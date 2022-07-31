@@ -1,22 +1,29 @@
 
+
 # Site com banco de dados
 
 Sistema criado primariamente com PHP e Bootstrap para um projeto acadêmico de conclusão de semestre. Quase completamente responsivo. Ideal para telas em FHD.
 
-O sistema possui dois tipos de usuário, "Master" e "Comum". 
+O sistema possui dois tipos de usuário, "Master" e "Comum". Cada vez que um usuário passa pela primeira etapa de autenticação, com login e senha corretos, a sua tentativa de acesso é gravada.
+
+Na página principal há links para:
+
+ - Tela de login
+ - Tela de cadastro
+ - Visualização do modelo de dados do banco
+ - Visualização de queries executadas pela aplicação
 
 O usuário Master pode:
  - Fazer cadastro de outro Master
  - Ver dados de usuários cadastrados
- - Ver registros de login
  - Visualizar um mapa com as coordenadas relacionadas a cada login
+ - Ver registros de login
+ - Baixar uma planilha com os registros de login
 
 O usuário Comum pode:
  - Ver os próprios dados
  - Alterar os próprios dados
  - Excluir conta
-
-Cada vez que um usuário passa pela primeira etapa de autenticação, com login e senha corretos, a sua tentativa de acesso é gravada.
 
 Ferramentas utilizadas: 
 <p align="left">
