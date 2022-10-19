@@ -6,6 +6,9 @@ Sistema criado primariamente com PHP e Bootstrap para um projeto acadêmico de c
 
 O sistema possui dois tipos de usuário, "Master" e "Comum". Cada vez que um usuário passa pela primeira etapa de autenticação, com login e senha corretos, a sua tentativa de acesso é gravada.
 
+Vídeo demonstração:
+https://www.linkedin.com/feed/update/urn:li:activity:6944526018451791872/
+
 Na página principal há links para:
 
  - Tela de login
